@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AudiTune</string>
+    <string name="music_logo">Music_logo</string>
+    <string name="storage">Storage</string>
+</resources>
