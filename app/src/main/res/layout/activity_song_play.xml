@@ -23,7 +23,7 @@
         android:id="@+id/seekBar2"
         android:layout_width="360dp"
         android:layout_height="35dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,34 +46,34 @@
         android:layout_width="101dp"
         android:layout_height="108dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="28dp"
+        android:contentDescription="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/seekBar2"
-        app:layout_constraintVertical_bias="0.027"
-        app:srcCompat="@drawable/play"
-        android:contentDescription="@string/play" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/play" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="101dp"
         android:layout_height="108dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/Next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar2"
-        app:srcCompat="@drawable/skip_next"
-        android:contentDescription="@string/Next" />
+        app:srcCompat="@drawable/skip_next" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="101dp"
         android:layout_height="108dp"
+        android:contentDescription="@string/Last"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/skip_previous"
-        android:contentDescription="@string/Last" />
+        app:srcCompat="@drawable/skip_previous" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

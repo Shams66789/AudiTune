@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(MainActivity.this, SongPlay.class);
                                 String currentSong = listView.getItemAtPosition(position).toString();
 
-                                intent.putExtra("name", mySongs);
+                                intent.putExtra("SongList", mySongs);
                                 intent.putExtra("currentSong", currentSong);
                                 intent.putExtra("position", position);
                                 startActivity(intent);
