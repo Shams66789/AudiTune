@@ -27,7 +27,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(getContext()).inflate(R.layout.text_row_item, parent, false);
+        convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_view_layout, parent, false);
         TextView t = convertView.findViewById(R.id.textView);
         t.setText(getItem(position));
         return convertView;

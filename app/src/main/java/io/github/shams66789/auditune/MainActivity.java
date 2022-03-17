@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -36,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
                         ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
                         String[] songList = new String[mySongs.size()];
                         for (int i = 0; i < mySongs.size(); i++) {
                             songList[i] = mySongs.get(i).getName().replace(".mp3", "");
                         }
-                        CustomAdapter ad = new CustomAdapter(MainActivity.this, R.layout.text_row_item,songList );
+                        CustomAdapter ad = new CustomAdapter(MainActivity.this, R.layout.list_view_layout,songList );
                         listView.setAdapter(ad);
                         Intent intent = new Intent(MainActivity.this, SongPlay.class);
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-                        Toast.makeText(MainActivity.this, "Permission denied", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Permission for reading storage is denied!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
