@@ -2,4 +2,8 @@
     <string name="app_name">AudiTune</string>
     <string name="music_logo">Music_logo</string>
     <string name="storage">Storage</string>
+    <string name="music_icon">Music_icon</string>
+    <string name="Next">Play Next</string>
+    <string name="play">Play</string>
+    <string name="Last">Play Previous</string>
 </resources>

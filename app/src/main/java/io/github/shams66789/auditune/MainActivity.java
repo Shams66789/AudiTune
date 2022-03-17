@@ -1,20 +1,15 @@
 package io.github.shams66789.auditune;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
@@ -29,13 +24,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerView);
+        listView = findViewById(R.id.listView);
         Dexter.withContext(this)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
@@ -47,12 +42,21 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < mySongs.size(); i++) {
                             songList[i] = mySongs.get(i).getName().replace(".mp3", "");
                         }
-                        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                        CustomAdapter ad = new CustomAdapter(songList);
-                        recyclerView.setAdapter(ad);
-                        recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this,
-                                DividerItemDecoration.VERTICAL));
+                        CustomAdapter ad = new CustomAdapter(MainActivity.this, R.layout.text_row_item,songList );
+                        listView.setAdapter(ad);
+                        Intent intent = new Intent(MainActivity.this, SongPlay.class);
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent intent = new Intent(MainActivity.this, SongPlay.class);
+                                String currentSong = listView.getItemAtPosition(position).toString();
 
+                                intent.putExtra("name", mySongs);
+                                intent.putExtra("currentSong", currentSong);
+                                intent.putExtra("position", position);
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @Override
