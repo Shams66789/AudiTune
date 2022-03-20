@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-                        Toast.makeText(MainActivity.this, "Permission for reading storage is denied!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Permission for reading storage is denied!",
+                                Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

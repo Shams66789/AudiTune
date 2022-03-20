@@ -51,34 +51,30 @@
         android:layout_width="101dp"
         android:layout_height="108dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="28dp"
         android:contentDescription="@string/play"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/seekBar2"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/pause" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="101dp"
         android:layout_height="108dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:contentDescription="@string/Next"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2"
         app:srcCompat="@drawable/skip_next" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="101dp"
         android:layout_height="108dp"
+        android:layout_marginEnd="28dp"
         android:contentDescription="@string/Last"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/skip_previous" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
