@@ -12,13 +12,15 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.io.File;
 import java.util.ArrayList;
 
 public class SongPlay extends AppCompatActivity {
 
     TextView textView;
-    ImageView play , next, previous;
+    ImageView play , next, previous, imageView3;
     SeekBar seekBar;
     ArrayList<File> songs;
     String textContent;
@@ -35,7 +37,9 @@ public class SongPlay extends AppCompatActivity {
         next = findViewById(R.id.imageView6);
         previous = findViewById(R.id.imageView7);
         seekBar = findViewById(R.id.seekBar2);
+        imageView3 = findViewById(R.id.imageView3);
 
+        Glide.with(this).load(R.drawable.music2).into(imageView3);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         songs = (ArrayList) bundle.getParcelableArrayList("SongList");
@@ -93,6 +97,7 @@ public class SongPlay extends AppCompatActivity {
         next.setOnClickListener(v -> {
             mediaPlayer.stop();
             mediaPlayer.release();
+            Glide.with(this).load(R.drawable.music2).into(imageView3);
             if (position != songs.size() - 1) {
                 position = position + 1;
             } else {
@@ -110,6 +115,7 @@ public class SongPlay extends AppCompatActivity {
         previous.setOnClickListener(v -> {
             mediaPlayer.stop();
             mediaPlayer.release();
+            Glide.with(this).load(R.drawable.music2).into(imageView3);
             if (position != 0) {
                 position = position - 1;
             } else {
